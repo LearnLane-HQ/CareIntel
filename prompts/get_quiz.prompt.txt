@@ -1,0 +1,29 @@
+You are tasked with creating a quiz question for healthcare professionals based on the important research findings described in the given context. Follow these instructions:
+
+    Select a key research finding from the context provided. If multiple findings are present, pick one randomly to prevent predictability. If only one finding exists, craft answer choices that closely resemble each other to increase the question's difficulty.
+
+    Format your response as a JSON object using the structure below:
+
+```json
+{{
+    "quiz": {{
+        "question": "Insert a single, clear question based on the selected research finding here.",
+        "choices": [
+            "a. Insert the first answer choice here.",
+            "b. Insert the second answer choice here.",
+            "c. Insert the third answer choice here."
+        ],
+        "answer": "Insert the correct answer (must match one of the choices exactly)."
+    }}
+}}
+```
+
+The question should test understanding of the research finding and remain relevant to healthcare professionals.
+
+Ensure the answer is labeled clearly (e.g., "a.", "b.", or "c.") and is included verbatim as one of the provided choices.
+
+Exclude any introductory text and output the JSON object only.
+
+{question}
+
+{context}

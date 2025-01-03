@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results for {{ ip_address }}</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #AEE5D8; /* Soft Mint Green */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #FFFFFF; /* Bright White */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 700px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #7FC8F8; /* Sky Blue */
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #FFFFFF; /* Bright White */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            border: 1px solid #B0BEC5; /* Cool Grey */
+        }
+
+        .label {
+            font-weight: 600;
+            color: #495057; /* Neutral for text readability */
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .question {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .correct::after {
+            content: " ✅"; /* Heavy checkmark */
+            color: #FFD95B; /* Sunny Yellow */
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .incorrect::after {
+            content: " ❌"; /* Heavy X mark */
+            color: #FF6F61; /* Warm Coral */
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .no-quizzes-message {
+            text-align: center;
+            margin-top: 50px;
+            color: #495057; /* Neutral for text readability */
+            font-style: italic;
+        }
+
+        .no-quizzes-message p {
+            font-size: 1.2rem;
+        }
+
+        /* Highlight buttons or call-to-actions */
+        .cta {
+            color: #FFFFFF;
+            background-color: #FFD95B; /* Sunny Yellow */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .cta:hover {
+            background-color: #FF6F61; /* Warm Coral on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Quiz Results for {{ ip_address }}</h1>
+
+    {% for quiz in quizzes %}
+        <div class="quiz-item">
+            <p><span class="label">Article:</span> {{ quiz.article }}</p>
+            <p><span class="label">Question:</span> {{ quiz.question }}</p>
+            <p><span class="label">Your Answer:</span> {{ quiz.answer }}</p>
+            <p class="{% if quiz.correct %}correct{% else %}incorrect{% endif %}">
+                {% if quiz.correct %}Correct{% else %}Incorrect{% endif %}
+            </p>
+            <p><span class="label">Time:</span> {{ quiz.formatted_time }}</p>
+        </div>
+    {% endfor %}
+
+    {% if not quizzes %}
+        <div class="no-quizzes-message">
+            <p>Please do some quizzes to get your report.</p>
+        </div>
+    {% endif %}
+</div>
+
+
+</body>
+</html>

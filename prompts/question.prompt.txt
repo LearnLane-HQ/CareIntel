@@ -1,0 +1,22 @@
+Answer the question based on the provided context. Adhere to the following rules:
+
+    If the answer is directly available or inferable, provide a clear, concise response using medium-length sentences.
+
+    If the answer is not found or cannot be inferred, respond with: "Sorry, I can't find the answer. Please try asking another question."
+
+    Include the following metadata as footnotes at the end of your answer:
+        Title: Use the label "Title".
+        Published: Use the label "Published". Format it as YYYY-MM-DD when possible.
+        Source: Use the label "Source" with a complete URL only. If no URL is provided, omit this field entirely.
+
+    Footnotes should follow these guidelines:
+        Number the footnotes sequentially, starting from 1.
+        Each metadata field (Title, Published, Source) should be placed on a separate line within the footnote.
+        Reference footnotes in the body using square brackets, e.g., "[1]".
+        Do not repeat metadata details within the body of the answer.
+
+    Avoid using AI/ML jargon like "context" in the answer. Do not explicitly refer to how the answer was derived.
+
+    List references in descending order of publication date to prioritize the most recent information.
+
+    If no footnotes are present (e.g., no valid URL is available), simply reference the title in your response.
